@@ -15,7 +15,8 @@ RUN mkdir /usr/local/amavis/
 ADD src/ /usr/local/amavis/
 ADD etc/ /etc/amavis/conf.d/
 RUN chmod 755 /usr/local/amavis/*.sh
-#COPY amavisd.conf /etc/amavisd.conf
+RUN chmod 777 /var/log
+#RUN ln -s /dev/stdout /var/log/amavis.log && chown amavis:amavis /var/log/amavis.log && chmod 640 /var/log/amavis.log
 
 #CMD ["/usr/local/amavis/loop.sh"]
 EXPOSE 10024
