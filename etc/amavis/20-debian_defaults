@@ -27,6 +27,7 @@ $log_recip_templ = undef;    # disable by-recipient level-0 log entries
 #$syslog_ident = 'amavis';    # syslog ident tag, prepended to all messages
 #$syslog_facility = 'mail';
 #$syslog_priority = 'debug';  # switch to info to drop debug output, etc
+$log_level = 5;
 
 $enable_db = 1;              # enable use of BerkeleyDB/libdb (SNMP and nanny)
 $enable_global_cache = 1;    # enable use of libdb-based cache if $enable_db=1
