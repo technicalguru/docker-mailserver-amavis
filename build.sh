@@ -1,1 +1,1 @@
-docker build -t technicalguru/rs-mailserver-amavis:latest .
+docker build -t technicalguru/mailserver-amavis:latest .

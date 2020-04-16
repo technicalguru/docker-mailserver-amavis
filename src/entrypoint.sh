@@ -19,6 +19,9 @@ fi
 if [[ -z "${AV_POSTFIX_SERVICE_PORT}" ]]; then
     AV_POSTFIX_SERVICE_NAME=10025
 fi
+if [[ -z "${AV_VIRUSADMIN_EMAIL}" ]]; then
+    AV_VIRUSADMIN_EMAIL="postmaster\@${AV_MYDOMAIN}"
+fi
 
 ####################
 # Helper functions
@@ -53,6 +56,7 @@ copy_template_file() {
 		replace_var $TMP_DST 'AV_MYDOMAIN'
 		replace_var $TMP_DST 'AV_POSTFIX_SERVICE_NAME'
 		replace_var $TMP_DST 'AV_POSTFIX_SERVICE_PORT'
+		replace_var $TMP_DST 'AV_VIRUSADMIN_EMAIL'
 		# MUSTER
 		if [ ! -f $PF_TLS_CAFILE ]; then
 			sed -i "s/^.*PF_TLS_CAFILE/# PF_TLS_CAFILE does not exist/g" $TMP_DST
