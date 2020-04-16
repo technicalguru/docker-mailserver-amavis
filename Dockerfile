@@ -1,5 +1,5 @@
 FROM debian:10.3
-MAINTAINER Ralph Schuster <github@ralph-schuster.eu>
+LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 
 #####################################################################
 #  Prerequisites
@@ -55,7 +55,8 @@ RUN chmod 755 /usr/local/amavis/*.sh
 
 # ClamAV
 RUN mkdir /var/run/clamav \
-    && chown clamav:clamav /var/run/clamav
+    && chown clamav:clamav /var/run/clamav \
+    && adduser clamav amavis
 # Copy templates and remove files already existing
 RUN mkdir /usr/local/amavis/templates/clamav
 ADD etc/clamav/  /usr/local/amavis/templates/clamav/
@@ -83,6 +84,8 @@ RUN chmod 777 /var/log
 #####################################################################
 
 EXPOSE 10024
+VOLUME ["/var/virusmails"]
+WORKDIR ["/usr/local/amavis"]
 CMD ["/usr/local/amavis/entrypoint.sh"]
 #CMD ["/usr/local/amavis/loop.sh"]
 
