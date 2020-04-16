@@ -5,7 +5,7 @@ use strict;
 # Debian overrides by default anyway).
 
 # chomp($mydomain = `head -n 1 /etc/mailname`);
-$mydomain = 'localdomain';
+$mydomain = "__AV_MYDOMAIN__";
 
 # amavisd-new needs to know which email domains are to be considered local
 # to the administrative domain.  Only emails to "local" domains are subject
@@ -15,7 +15,7 @@ $mydomain = 'localdomain';
 # override or redefine this if $mydomain is changed later in the config
 # sequence.
 
-@local_domains_acl = ( ".localdomain" );
+@local_domains_acl = ( ".__AV_MYDOMAIN__" );
 
 1;  # ensure a defined return
 

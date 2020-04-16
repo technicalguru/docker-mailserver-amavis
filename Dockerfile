@@ -30,8 +30,7 @@ RUN apt-get install -y --no-install-recommends \
     libio-socket-ssl-perl \
     libnet-patricia-perl \
     razor \
-    pyzor \
-    liece-dcc
+    pyzor
 
 # SpamAssassin
 RUN apt-get install -y --no-install-recommends \
@@ -49,25 +48,41 @@ RUN /usr/bin/freshclam
 #####################################################################
 #  CONFIGURE
 #####################################################################
+# Scripts
+RUN mkdir /usr/local/amavis && mkdir /usr/local/amavis/templates
+ADD src/ /usr/local/amavis/
+RUN chmod 755 /usr/local/amavis/*.sh
+
 # ClamAV
 RUN mkdir /var/run/clamav \
     && chown clamav:clamav /var/run/clamav
-ADD etc/clamav/ /etc/clamav/
+# Copy templates and remove files already existing
+RUN mkdir /usr/local/amavis/templates/clamav
+ADD etc/clamav/  /usr/local/amavis/templates/clamav/
+RUN cd /usr/local/amavis/templates/clamav/ && \
+    for file in *; do rm /etc/clamav/$file; done
+
 
 # SpamAssassin
-ADD etc/spamassassin/ /etc/spamassassin/
+# Copy templates and remove files already existing
+RUN mkdir /usr/local/amavis/templates/spamassassin
+ADD etc/spamassassin/  /usr/local/amavis/templates/spamassassin/
+RUN cd /usr/local/amavis/templates/spamassassin/ && \
+    for file in *; do rm /etc/spamassassin/$file; done
 
 # Amavis
-ADD etc/amavis/ /etc/amavis/conf.d/
+# Copy templates and remove files already existing
+RUN mkdir /usr/local/amavis/templates/amavis
+ADD etc/amavis/  /usr/local/amavis/templates/amavis/
+RUN cd /usr/local/amavis/templates/amavis/ && \
+    for file in *; do rm /etc/amavis/conf.d/$file; done
 RUN chmod 777 /var/log
 
 #####################################################################
 #  Container Entrypoint
 #####################################################################
-RUN mkdir /usr/local/amavis/
-ADD src/ /usr/local/amavis/
-RUN chmod 755 /usr/local/amavis/*.sh
 
 EXPOSE 10024
 CMD ["/usr/local/amavis/entrypoint.sh"]
+#CMD ["/usr/local/amavis/loop.sh"]
 

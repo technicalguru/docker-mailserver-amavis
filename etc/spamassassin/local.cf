@@ -48,19 +48,20 @@ use_bayes_rules 1
 bayes_auto_learn 1
 
 #
-# DCC
+# DCC (disabled, not available via buster)
 #
-use_dcc 1
-dcc_path /usr/bin/dccproc
-dcc_add_header 1
-dcc_dccifd_path /usr/sbin/dccifd
+#use_dcc 1
+#dcc_path /usr/bin/dccproc
+#dcc_add_header 1
+#dcc_dccifd_path /usr/sbin/dccifd
 
 #
 # Pyzor
 #
 use_pyzor 1
 pyzor_path /usr/bin/pyzor
-pyzor_add_header 1
+#pyzor_add_header 1
+pyzor_options --homedir /etc/spamassassin
 
 #
 # Razor

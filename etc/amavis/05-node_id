@@ -3,7 +3,7 @@ use strict;
 # $myhostname is used by amavisd-new for node identification, and it is
 # important to get it right (e.g. for ESMTP EHLO, loop detection, and so on).
 
-$myhostname = `uname -a`.'localdomain';
+$myhostname = `uname -a`.'__AV_MYDOMAIN__';
 
 1;  # ensure a defined return
 

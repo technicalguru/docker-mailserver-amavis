@@ -35,8 +35,8 @@ $enable_global_cache = 1;    # enable use of libdb-based cache if $enable_db=1
 $inet_socket_port = 10024;   # default listening socket
 $inet_socket_bind = undef;   # binds to all interfaces
 @inet_acl = qw( 127/8 10/8 172.16/12 192.168/16 );
-$notify_method  = 'smtp:[postfix-internal-service]:10025';
-$forward_method = 'smtp:[postfix-internal-service]:10025'; 
+$notify_method  = 'smtp:[__AV_POSTFIX_SERVICE_NAME__]:__AV_POSTFIX_SERVICE_PORT__';
+$forward_method = 'smtp:[__AV_POSTFIX_SERVICE_NAME__]:__AV_POSTFIX_SERVICE_PORT__'; 
 
 $sa_spam_subject_tag = '***SPAM*** ';
 $sa_tag_level_deflt  = 2.0;  # add spam info headers if at, or above that level
