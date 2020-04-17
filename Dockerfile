@@ -40,7 +40,8 @@ RUN apt-get install -y --no-install-recommends \
 
 # Amavis-new
 RUN apt-get install -y --no-install-recommends \
-    amavisd-new
+    amavisd-new \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create initial AV data
 RUN /usr/bin/freshclam
