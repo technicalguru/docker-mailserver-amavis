@@ -37,9 +37,9 @@ _docker-mailserver-amavis_  requires various environment variables to be set. Th
 | **Variable** | **Description** | **Default Value** |
 |------------|---------------|-----------------|
 | `AV_MYDOMAIN` | The first and primary mail domain of your mailserver. Amavis uses this to add headers in a mail. | `localdomain` |
-| `AV_POSTFIX_SERVICE_NAME` | The hostname or IP address of the SMTP server where Amavis will deliver scanned mails and result to. | `127.0.0.1` |
-| `AV_POSTFIX_SERVICE_PORT` | The port of the SMTP server. | `10025` |
-| `AV_VIRUSADMIN_EMAIL` | The global administrator to be informed about virus detection and quarantines. |
+| `AV_POSTFIX_SERVICE_NAME` | The hostname or IP address of the SMTP server where Amavis will deliver scanned mails and results to. | `127.0.0.1` |
+| `AV_POSTFIX_SERVICE_PORT` | The port of the SMTP server for delivering scanned mails and results. | `10025` |
+| `AV_VIRUSADMIN_EMAIL` | The global administrator to be informed about virus detection and quarantines. | `postmaster@AV_MYDOMAIN` |
 
 ## Volumes
 You shall provide a data volume in order to secure your quarantine data from data loss. Map the volume to `/var/virusmails` folder inside the container.
@@ -54,7 +54,7 @@ The [main mailserver project](https://github.com/technicalguru/docker-mailserver
 * [with HELM charts](https://github.com/technicalguru/docker-mailserver/tree/master/helm-charts)
 
 # Refreshing AV signatures and Spam detection rules
-Every once ina while you will need to run `sa-compile` and `freshclam`in order to refresh you virus and spam detection rules. The current images does not do this yet (see [#4](https://github.com/technicalguru/docker-mailserver-amavis/issues/4))
+Every once in a while you will need to run `sa-compile` and `freshclam`in order to refresh you virus and spam detection rules. The current images does not do this yet (see [#4](https://github.com/technicalguru/docker-mailserver-amavis/issues/4))
 
 # Additional customization
 You can further customize Amavis, ClamAV and SpamAssassin configuration files. Please follow these instructions:
@@ -66,7 +66,7 @@ You can further customize Amavis, ClamAV and SpamAssassin configuration files. P
 1. (Re)Start the container. If you configuration was not copied correctly then log into the container (bash is available) and delete the changed files from the corresponding `/etc` folders. Then restart the container.
 
 # Issues
-This Docker image is mature and replaced my own mailserver in production. However, several issues are still unresolved:
+This Docker image is mature and provides scanning for my mailserver in production. However, several issues are still unresolved:
 
 * [#1](https://github.com/technicalguru/docker-mailserver-amavis/issues/1) - Logging to stdout is showing Amavis log only. ClamAV and SpamAssassin logs are showing up partially only.
 * [#2](https://github.com/technicalguru/docker-mailserver-amavis/issues/2) - DKIM support is missing
