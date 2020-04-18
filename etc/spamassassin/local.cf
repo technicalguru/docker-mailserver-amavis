@@ -69,6 +69,9 @@ pyzor_options --homedir /etc/spamassassin
 use_razor2 1
 razor_config /etc/razor/razor-agent.conf
 
+#
+# Adding SPAM header
+add_header all Report _REPORT_
 
 #   Set headers which may provide inappropriate cues to the Bayesian
 #   classifier
