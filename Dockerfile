@@ -85,8 +85,8 @@ RUN chmod 777 /var/log
 #####################################################################
 
 EXPOSE 10024
-VOLUME ["/var/virusmails"]
-WORKDIR ["/usr/local/amavis"]
+VOLUME /var/virusmails
+WORKDIR /usr/local/amavis
 CMD ["/usr/local/amavis/entrypoint.sh"]
 #CMD ["/usr/local/amavis/loop.sh"]
 
