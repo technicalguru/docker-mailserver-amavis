@@ -93,6 +93,7 @@ configure_spamassassin() {
 	TMPL_SRC="$IMAGE_TEMPLATES/spamassassin"
 	DEST_DIR="/etc/spamassassin"
 	copy_files $TMPL_SRC $DEST_DIR
+	chown amavis:amavis $DEST_DIR/*
 }
 
 # Configure Amavis
@@ -100,6 +101,7 @@ configure_amavis() {
 	TMPL_SRC="$IMAGE_TEMPLATES/amavis"
 	DEST_DIR="/etc/amavis/conf.d"
 	copy_files $TMPL_SRC $DEST_DIR
+	chown amavis:amavis $DEST_DIR/*
 }
 
 #########################
