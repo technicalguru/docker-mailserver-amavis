@@ -86,6 +86,8 @@ configure_clamd() {
 	TMPL_SRC="$IMAGE_TEMPLATES/clamav"
 	DEST_DIR="/etc/clamav"
 	copy_files $TMPL_SRC $DEST_DIR
+	chmod 644 /etc/clamav/clamd.conf
+	chown -R clamav:clamav /etc/clamav
 }
 
 # Configure SpamAssassin
