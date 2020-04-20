@@ -7,6 +7,7 @@ LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     curl file pax bzip2 bash vim perl openssl wget default-mysql-client procps \
+    rsyslog \
     ca-certificates
 
 #####################################################################

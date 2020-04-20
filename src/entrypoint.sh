@@ -1,10 +1,10 @@
 #!/bin/bash
 
 CLAMD=/usr/sbin/clamd
-CLAMD_OPTION=
+CLAMD_OPTIONS=
 
 AMAVIS=/usr/sbin/amavisd-new
-AMAVIS_OPTIONS=foreground
+AMAVIS_OPTIONS=
 
 IMAGE_HOME=/usr/local/amavis
 IMAGE_TEMPLATES=$IMAGE_HOME/templates
@@ -103,6 +103,15 @@ configure_amavis() {
 	copy_files $TMPL_SRC $DEST_DIR
 }
 
+# Stopping all (we got a TERM signal at this point)
+_sigterm() {
+	echo "Caught SIGTERM..."
+	service amavis stop
+	/etc/init.d/clamav-daemon stop
+	service rsyslog stop
+	kill -TERM "$TAIL_CHILD_PID" 2>/dev/null
+}
+
 #########################
 # Startup procedure
 #########################
@@ -117,9 +126,17 @@ configure_spamassassin
 # Configure amavis
 configure_amavis
 
+# Start the syslog
+service rsyslog start
+
 # Start ClamAV
-$CLAMD $CLAMD_OPTIONS
+/etc/init.d/clamav-daemon start
 
 # Start Amavis
-$AMAVIS $AMAVIS_OPTIONS
+service amavis start
 
+# Tail the syslog
+trap _sigterm SIGTERM
+tail -f /var/log/syslog &
+TAIL_CHILD_PID=$!
+wait "$TAIL_CHILD_PID"
