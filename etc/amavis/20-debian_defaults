@@ -22,12 +22,12 @@ $QUARANTINEDIR = "/var/virusmails";
 $quarantine_subdir_levels = 1; # enable quarantine dir hashing
 
 $log_recip_templ = undef;    # disable by-recipient level-0 log entries
-#$DO_SYSLOG = 1;              # log via syslogd (preferred)
+$DO_SYSLOG = 1;              # log via syslogd (preferred)
 #$LOGFILE = "/var/log/amavis.log";
-#$syslog_ident = 'amavis';    # syslog ident tag, prepended to all messages
-#$syslog_facility = 'mail';
-#$syslog_priority = 'debug';  # switch to info to drop debug output, etc
-$log_level = 5;
+$syslog_ident = 'amavis';    # syslog ident tag, prepended to all messages
+$syslog_facility = 'mail';
+$syslog_priority = 'info';  # switch to info to drop debug output, etc
+$log_level = 1;
 
 $enable_db = 1;              # enable use of BerkeleyDB/libdb (SNMP and nanny)
 $enable_global_cache = 1;    # enable use of libdb-based cache if $enable_db=1

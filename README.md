@@ -74,5 +74,6 @@ This Docker image is mature and provides scanning for my mailserver in productio
 * [#4](https://github.com/technicalguru/docker-mailserver-amavis/issues/4) - Add automatic SA and ClamAV rules refresh
 
 # Contribution
-Report a bug, request an enhancement or pull request at the [GitHub Issue Tracker](https://github.com/technicalguru/docker-mailserver-amavis/issues).
+Report a bug, request an enhancement or pull request at the [GitHub Issue Tracker](https://github.com/technicalguru/docker-mailserver-amavis/issues). Make sure you have checked out the [Contribution Guideline](CONTRIBUTING.md)
+
 
