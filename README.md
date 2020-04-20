@@ -68,7 +68,6 @@ You can further customize Amavis, ClamAV and SpamAssassin configuration files. P
 # Issues
 This Docker image is mature and provides scanning for my mailserver in production. However, several issues are still unresolved:
 
-* [#1](https://github.com/technicalguru/docker-mailserver-amavis/issues/1) - Logging to stdout is showing Amavis log only. ClamAV and SpamAssassin logs are showing up partially only.
 * [#2](https://github.com/technicalguru/docker-mailserver-amavis/issues/2) - DKIM support is missing
 * [#3](https://github.com/technicalguru/docker-mailserver-amavis/issues/3) - SPF support is missing
 * [#4](https://github.com/technicalguru/docker-mailserver-amavis/issues/4) - Add automatic SA and ClamAV rules refresh
