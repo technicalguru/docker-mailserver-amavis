@@ -91,7 +91,7 @@ ARG ARG_VERSION=2.11.0-01
 ARG ARG_REVISION
 ARG ARG_VENDOR=technicalguru
 ARG ARG_TITLE=technicalguru/mailserver-amavis
-ARG ARG_DESCRIPTION=Provides Amavis mail scanner with ClamAV and SpamAssassin
+ARG ARG_DESCRIPTION="Provides Amavis mail scanner with ClamAV and SpamAssassin"
 ARG ARG_DOCUMENTATION=https://github.com/technicalguru/docker-mailserver-amavis
 ARG ARG_AUTHORS=technicalguru
 ARG ARG_LICENSES=GPL-3.0-or-later
