@@ -85,16 +85,16 @@ RUN chmod 777 /var/log
 #  Image OCI labels
 #####################################################################
 ARG ARG_CREATED
-ARG ARG_URL
-ARG ARG_SOURCE
+ARG ARG_URL=https://github.com/technicalguru/docker-mailserver-amavis
+ARG ARG_SOURCE=https://github.com/technicalguru/docker-mailserver-amavis
 ARG ARG_VERSION=2.11.0-01
 ARG ARG_REVISION
-ARG ARG_VENDOR
-ARG ARG_TITLE
-ARG ARG_DESCRIPTION
-ARG ARG_DOCUMENTATION
-ARG ARG_AUTHORS
-ARG ARG_LICENSES
+ARG ARG_VENDOR=technicalguru
+ARG ARG_TITLE=technicalguru/mailserver-amavis
+ARG ARG_DESCRIPTION=Provides Amavis mail scanner with ClamAV and SpamAssassin
+ARG ARG_DOCUMENTATION=https://github.com/technicalguru/docker-mailserver-amavis
+ARG ARG_AUTHORS=technicalguru
+ARG ARG_LICENSES=GPL-3.0-or-later
 
 LABEL org.opencontainers.image.created=$ARG_CREATED
 LABEL org.opencontainers.image.url=$ARG_URL
