@@ -151,8 +151,9 @@ while kill -0 $TAIL_CHILD_PID >/dev/null 2>&1
 do
 	if [ "$COUNTDOWN" -le 0 ]
 	then
-		echo "Updating SpamAssasin rules..."
+		echo "Updating SpamAssassin rules..."
 		sa-update --nogpg --channelfile /usr/local/amavis/update-channels
+		service amavis restart
 		echo "SpamAssassin rules updated."
 		COUNTDOWN=$INTERVAL
 	fi
