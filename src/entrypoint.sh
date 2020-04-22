@@ -143,4 +143,20 @@ service amavis start
 trap _sigterm SIGTERM
 tail -f /var/log/syslog &
 TAIL_CHILD_PID=$!
-wait "$TAIL_CHILD_PID"
+
+# Enter loop for sa-update
+INTERVAL=86400
+COUNTDOWN=0
+while kill -0 $TAIL_CHILD_PID >/dev/null 2>&1
+do
+	if [ "$COUNTDOWN" -le 0 ]
+	then
+		echo "Updating SpamAssasin rules..."
+		sa-update --nogpg --channelfile /usr/local/amavis/update-channels
+		echo "SpamAssassin rules updated."
+		COUNTDOWN=$INTERVAL
+	fi
+	sleep 1
+	((COUNTDOWN=COUNTDOWN-1))
+done
+
