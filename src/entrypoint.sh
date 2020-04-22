@@ -109,6 +109,7 @@ configure_amavis() {
 _sigterm() {
 	echo "Caught SIGTERM..."
 	service amavis stop
+	service clamav-freshclam stop
 	/etc/init.d/clamav-daemon stop
 	service rsyslog stop
 	kill -TERM "$TAIL_CHILD_PID" 2>/dev/null
@@ -133,6 +134,7 @@ service rsyslog start
 
 # Start ClamAV
 /etc/init.d/clamav-daemon start
+service clamav-freshclam start
 
 # Start Amavis
 service amavis start
