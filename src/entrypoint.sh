@@ -86,6 +86,8 @@ configure_clamd() {
 	TMPL_SRC="$IMAGE_TEMPLATES/clamav"
 	DEST_DIR="/etc/clamav"
 	copy_files $TMPL_SRC $DEST_DIR
+	chmod 644 /etc/clamav/clamd.conf
+	chown -R clamav:clamav /etc/clamav
 }
 
 # Configure SpamAssassin
@@ -107,6 +109,7 @@ configure_amavis() {
 _sigterm() {
 	echo "Caught SIGTERM..."
 	service amavis stop
+	service clamav-freshclam stop
 	/etc/init.d/clamav-daemon stop
 	service rsyslog stop
 	kill -TERM "$TAIL_CHILD_PID" 2>/dev/null
@@ -131,6 +134,7 @@ service rsyslog start
 
 # Start ClamAV
 /etc/init.d/clamav-daemon start
+service clamav-freshclam start
 
 # Start Amavis
 service amavis start
@@ -139,4 +143,20 @@ service amavis start
 trap _sigterm SIGTERM
 tail -f /var/log/syslog &
 TAIL_CHILD_PID=$!
-wait "$TAIL_CHILD_PID"
+
+# Enter loop for sa-update
+INTERVAL=86400
+COUNTDOWN=0
+while kill -0 $TAIL_CHILD_PID >/dev/null 2>&1
+do
+	if [ "$COUNTDOWN" -le 0 ]
+	then
+		echo "Updating SpamAssasin rules..."
+		sa-update --nogpg --channelfile /usr/local/amavis/update-channels
+		echo "SpamAssassin rules updated."
+		COUNTDOWN=$INTERVAL
+	fi
+	sleep 1
+	((COUNTDOWN=COUNTDOWN-1))
+done
+

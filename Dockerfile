@@ -82,6 +82,33 @@ RUN cd /usr/local/amavis/templates/amavis/ && \
 RUN chmod 777 /var/log
 
 #####################################################################
+#  Image OCI labels
+#####################################################################
+ARG ARG_CREATED
+ARG ARG_URL=https://github.com/technicalguru/docker-mailserver-amavis
+ARG ARG_SOURCE=https://github.com/technicalguru/docker-mailserver-amavis
+ARG ARG_VERSION=2.11.0-01
+ARG ARG_REVISION
+ARG ARG_VENDOR=technicalguru
+ARG ARG_TITLE=technicalguru/mailserver-amavis
+ARG ARG_DESCRIPTION="Provides Amavis mail scanner with ClamAV and SpamAssassin"
+ARG ARG_DOCUMENTATION=https://github.com/technicalguru/docker-mailserver-amavis
+ARG ARG_AUTHORS=technicalguru
+ARG ARG_LICENSES=GPL-3.0-or-later
+
+LABEL org.opencontainers.image.created=$ARG_CREATED
+LABEL org.opencontainers.image.url=$ARG_URL
+LABEL org.opencontainers.image.source=$ARG_SOURCE
+LABEL org.opencontainers.image.version=$ARG_VERSION
+LABEL org.opencontainers.image.revision=$ARG_REVISION
+LABEL org.opencontainers.image.vendor=$ARG_VENDOR
+LABEL org.opencontainers.image.title=$ARG_TITLE
+LABEL org.opencontainers.image.description=$ARG_DESCRIPTION
+LABEL org.opencontainers.image.documentation=$ARG_DOCUMENTATION
+LABEL org.opencontainers.image.authors=$ARG_AUTHORS
+LABEL org.opencontainers.image.licenses=$ARG_LICENSES
+
+#####################################################################
 #  Container Entrypoint
 #####################################################################
 

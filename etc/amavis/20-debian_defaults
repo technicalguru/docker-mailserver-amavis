@@ -26,7 +26,7 @@ $DO_SYSLOG = 1;              # log via syslogd (preferred)
 #$LOGFILE = "/var/log/amavis.log";
 $syslog_ident = 'amavis';    # syslog ident tag, prepended to all messages
 $syslog_facility = 'mail';
-$syslog_priority = 'info';  # switch to info to drop debug output, etc
+#$syslog_priority = 'info';  # switch to info to drop debug output, etc
 $log_level = 1;
 
 $enable_db = 1;              # enable use of BerkeleyDB/libdb (SNMP and nanny)
