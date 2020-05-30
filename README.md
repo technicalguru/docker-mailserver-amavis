@@ -14,7 +14,7 @@ Related images:
 # Tags
 The following versions are available from DockerHub. The image tag matches the Amavisd-new version.
 
-* [2.11.0-01, 2.11.0, 2.11, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.11.0-01/Dockerfile)
+* [2.11.0.0, 2.11.0, 2.11, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.11.0.0/Dockerfile)
 
 # Features
 * Virus detection using [ClamAV](https://www.clamav.net/) v0.102
@@ -40,6 +40,8 @@ _docker-mailserver-amavis_  requires various environment variables to be set. Th
 | `AV_POSTFIX_SERVICE_NAME` | The hostname or IP address of the SMTP server where Amavis will deliver scanned mails and results to. | `127.0.0.1` |
 | `AV_POSTFIX_SERVICE_PORT` | The port of the SMTP server for delivering scanned mails and results. | `10025` |
 | `AV_VIRUSADMIN_EMAIL` | The global administrator to be informed about virus detection and quarantines. | `postmaster@AV_MYDOMAIN` |
+| `AV_NOTIFY_SENDER` | sender envelope address, from which notification reports are sent from | `postmaster@AV_MYDOMAIN` |
+| `AV_NOTIFY_ADMIN` | sender envelope address, from which notification reports are sent from | `postmaster@AV_MYDOMAIN` |
 
 ## Volumes
 You shall provide a data volume in order to secure your quarantine data from data loss. Map the volume to `/var/virusmails` folder inside the container.
