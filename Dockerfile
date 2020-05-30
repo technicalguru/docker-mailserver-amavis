@@ -40,8 +40,9 @@ RUN apt-get install -y --no-install-recommends \
     spamc
 
 # Amavis-new
-RUN apt-get install -y --no-install-recommends \
-    amavisd-new \
+RUN AV_VERSION=1:2.11.0-6.1 \
+    && apt-get install -y --no-install-recommends \
+    amavisd-new=${AV_VERSION} \
     && rm -rf /var/lib/apt/lists/*
 
 # Create initial AV data
@@ -87,7 +88,7 @@ RUN chmod 777 /var/log
 ARG ARG_CREATED
 ARG ARG_URL=https://github.com/technicalguru/docker-mailserver-amavis
 ARG ARG_SOURCE=https://github.com/technicalguru/docker-mailserver-amavis
-ARG ARG_VERSION=2.11.0-01
+ARG ARG_VERSION=2.11.0.0
 ARG ARG_REVISION
 ARG ARG_VENDOR=technicalguru
 ARG ARG_TITLE=technicalguru/mailserver-amavis
