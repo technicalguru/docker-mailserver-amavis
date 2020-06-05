@@ -51,7 +51,7 @@ _docker-mailserver-amavis_  exposes port 10024. This is an unprotected SMTP list
 The [main mailserver project](https://github.com/technicalguru/docker-mailserver) has examples of container configurations:
 * [with docker-compose](https://github.com/technicalguru/docker-mailserver/tree/master/examples/docker-compose)
 * [with Kubernetes YAML files](https://github.com/technicalguru/docker-mailserver/tree/master/examples/kubernetes)
-* [with HELM charts](https://github.com/technicalguru/docker-mailserver/tree/master/helm-charts)
+* [with HELM charts](https://github.com/technicalguru/docker-mailserver/tree/master/examples/helm-charts)
 
 # Refreshing AV signatures and Spam detection rules
 Every once in a while you will need to run `sa-compile` and `freshclam`in order to refresh you virus and spam detection rules. The current images does not do this yet (see [#4](https://github.com/technicalguru/docker-mailserver-amavis/issues/4))
