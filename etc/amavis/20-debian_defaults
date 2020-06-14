@@ -79,6 +79,8 @@ $final_bad_header_destiny = D_PASS;     # False-positive prone (for spam)
 $enable_dkim_verification = 0; #disabled to prevent warning
 
 $virus_admin = '__AV_VIRUSADMIN_EMAIL__';
+$hdrfrom_notify_sender = 'amavisd-new <__AV_NOTIFY_SENDER__>';
+$hdrfrom_notify_admin  = 'amavisd-new <__AV_NOTIFY_ADMIN__>';
 
 # Set to empty ("") to add no header
 $X_HEADER_LINE = "Debian $myproduct_name at $mydomain";
