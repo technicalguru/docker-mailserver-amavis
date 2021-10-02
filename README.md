@@ -8,17 +8,18 @@ a SMTP server (usually the originating server on port 10025).
 Related images:
 * [docker-mailserver](https://github.com/technicalguru/docker-mailserver) - The main project, containing composition instructions
 * [docker-mailserver-postfix](https://github.com/technicalguru/docker-mailserver-postfix) - Postfix/Dovecot image (mailserver component)
+* [docker-mailserver-opendkim](https://github.com/technicalguru/docker-mailserver-opendkim) - OpenDKIM image (DKIM signing milter component)
 * [docker-mailserver-postfixadmin](https://github.com/technicalguru/docker-mailserver-postfixadmin) - Image for PostfixAdmin (Web UI to manage mailboxes and domain in Postfix)
 * [docker-mailserver-roundcube](https://github.com/technicalguru/docker-mailserver-roundcube) - Roundcube Webmailer
 
 # Tags
 The following versions are available from DockerHub. The image tag matches the Amavisd-new version.
 
-* [2.11.0.0, 2.11.0, 2.11, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.11.0.0/Dockerfile)
+* [2.11.1.0, 2.11.1, 2.11, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.11.1.0/Dockerfile)
 
 # Features
-* Virus detection using [ClamAV](https://www.clamav.net/) v0.102
-* Spam detection using [SpamAssassin](https://spamassassin.apache.org/) v3.4.2
+* Virus detection using [ClamAV](https://www.clamav.net/) v0.103
+* Spam detection using [SpamAssassin](https://spamassassin.apache.org/) v3.4.6
 * Seamless integration in any SMTP mail chain
 
 # License

@@ -1,4 +1,4 @@
-FROM debian:10.3
+FROM debian:11.0
 LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 
 #####################################################################
@@ -40,7 +40,9 @@ RUN apt-get install -y --no-install-recommends \
     spamc
 
 # Amavis-new
-RUN AV_VERSION=1:2.11.0-6.1 \
+ENV AV_VERSION="2.11.1"
+ENV AV_REVISION="5"
+RUN AV_VERSION=1:2.11.1-5 \
     && apt-get install -y --no-install-recommends \
     amavisd-new=${AV_VERSION} \
     && rm -rf /var/lib/apt/lists/*
@@ -88,8 +90,8 @@ RUN chmod 777 /var/log
 ARG ARG_CREATED
 ARG ARG_URL=https://github.com/technicalguru/docker-mailserver-amavis
 ARG ARG_SOURCE=https://github.com/technicalguru/docker-mailserver-amavis
-ARG ARG_VERSION=2.11.0.0
-ARG ARG_REVISION
+ARG ARG_VERSION="${AV_VERSION}.${AV_REVISION}"
+ARG ARG_REVISION="${AV_REVISION}"
 ARG ARG_VENDOR=technicalguru
 ARG ARG_TITLE=technicalguru/mailserver-amavis
 ARG ARG_DESCRIPTION="Provides Amavis mail scanner with ClamAV and SpamAssassin"
