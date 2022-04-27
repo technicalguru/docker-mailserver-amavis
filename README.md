@@ -15,7 +15,7 @@ Related images:
 # Tags
 The following versions are available from DockerHub. The image tag matches the Amavisd-new version.
 
-* [2.11.1.0, 2.11.1, 2.11, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.11.1.0/Dockerfile)
+* [2.11.1.1, 2.11.1, 2.11, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis/tree/v2.11.1.1) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.11.1.1/Dockerfile)
 
 # Features
 * Virus detection using [ClamAV](https://www.clamav.net/) v0.103
