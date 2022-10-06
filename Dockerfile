@@ -1,4 +1,4 @@
-FROM debian:11.3
+FROM debian:11
 LABEL maintainer="Ralph Schuster <github@ralph-schuster.eu>"
 
 #####################################################################
