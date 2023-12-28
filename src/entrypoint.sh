@@ -153,7 +153,7 @@ service amavis start
 
 # Tail the syslog
 trap _sigterm SIGTERM
-tail -f /var/log/syslog &
+tail -f /var/log/amavis.log &
 TAIL_CHILD_PID=$!
 
 # Enter loop for sa-update

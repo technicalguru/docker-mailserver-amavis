@@ -118,6 +118,6 @@ LABEL org.opencontainers.image.licenses=$ARG_LICENSES
 EXPOSE 10024
 VOLUME /var/virusmails
 WORKDIR /usr/local/amavis
-#CMD ["/usr/local/amavis/entrypoint.sh"]
-CMD ["/usr/local/amavis/loop.sh"]
+CMD ["/usr/local/amavis/entrypoint.sh"]
+#CMD ["/usr/local/amavis/loop.sh"]
 
