@@ -1,1 +1,1 @@
-docker build -t technicalguru/mailserver-amavis:latest .
+docker build --progress=plain -t technicalguru/mailserver-amavis:latest .
