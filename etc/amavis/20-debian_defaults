@@ -22,8 +22,8 @@ $QUARANTINEDIR = "/var/virusmails";
 $quarantine_subdir_levels = 1; # enable quarantine dir hashing
 
 $log_recip_templ = undef;    # disable by-recipient level-0 log entries
-$DO_SYSLOG = 1;              # log via syslogd (preferred)
-#$LOGFILE = "/var/log/amavis.log";
+$DO_SYSLOG = 0;              # log via syslogd (preferred)
+$LOGFILE = "/var/log/amavis.log";
 $syslog_ident = 'amavis';    # syslog ident tag, prepended to all messages
 $syslog_facility = 'mail';
 #$syslog_priority = 'info';  # switch to info to drop debug output, etc

@@ -137,9 +137,6 @@ configure_spamassassin
 # Configure amavis
 configure_amavis
 
-# Start the syslog
-service rsyslog start
-
 # Make sure amavis can write virusmails
 chown -R amavis:amavis /var/virusmails
 chmod -R u+rw,g+rw /var/virusmails
@@ -153,7 +150,7 @@ service amavis start
 
 # Tail the syslog
 trap _sigterm SIGTERM
-tail -f /var/log/syslog &
+tail -f /var/log/amavis.log &
 TAIL_CHILD_PID=$!
 
 # Enter loop for sa-update
