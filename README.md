@@ -15,11 +15,11 @@ Related images:
 # Tags
 The following versions are available from DockerHub. The image tag matches the Amavisd-new version.
 
-* [2.13.0.0, 2.13.0, 2.13, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis/tree/v2.13.0.0) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.13.0.0/Dockerfile)
+* [2.13.0.1, 2.13.0, 2.13, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis/tree/v2.13.0.0) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.13.0.1/Dockerfile)
 
 # Features
 * [Amavis Checker](https://www.amavis.org/) v2.13.0
-* Virus detection using [ClamAV](https://www.clamav.net/) v1.0.3
+* Virus detection using [ClamAV](https://www.clamav.net/) v1.0.5
 * Spam detection using [SpamAssassin](https://spamassassin.apache.org/) v4.0.0
 * Seamless integration in any SMTP mail chain
 
@@ -70,11 +70,7 @@ You can further customize Amavis, ClamAV and SpamAssassin configuration files. P
 1. (Re)Start the container. If you configuration was not copied correctly then log into the container (bash is available) and delete the changed files from the corresponding `/etc` folders. Then restart the container.
 
 # Issues
-This Docker image is mature and provides scanning for my mailserver in production. However, several issues are still unresolved:
-
-* [#2](https://github.com/technicalguru/docker-mailserver-amavis/issues/2) - DKIM support is missing
-* [#3](https://github.com/technicalguru/docker-mailserver-amavis/issues/3) - SPF support is missing
-* [#4](https://github.com/technicalguru/docker-mailserver-amavis/issues/4) - Add automatic SA and ClamAV rules refresh
+This Docker image is mature and provides scanning for my mailserver in production. No issues known right now.
 
 # Contribution
 Report a bug, request an enhancement or pull request at the [GitHub Issue Tracker](https://github.com/technicalguru/docker-mailserver-amavis/issues). Make sure you have checked out the [Contribution Guideline](CONTRIBUTING.md)

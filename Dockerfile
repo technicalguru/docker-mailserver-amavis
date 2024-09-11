@@ -30,6 +30,7 @@ RUN apt-get install -y --no-install-recommends \
     libgeo-ip-perl \
     libio-socket-ssl-perl \
     libnet-patricia-perl \
+    libmail-dmarc-perl \
     razor \
     pyzor
 
@@ -42,7 +43,7 @@ RUN apt-get install -y --no-install-recommends \
 # Amavis-new
 ENV AV_VERSION="1:2.13"
 ENV AV_REVISION="0"
-ENV AV_PACKAGE="1:2.13.0-3"
+ENV AV_PACKAGE="1:2.13.0-3+deb12u1"
 RUN apt-get install -y --no-install-recommends \
     amavisd-new=${AV_PACKAGE} \
     && rm -rf /var/lib/apt/lists/*
