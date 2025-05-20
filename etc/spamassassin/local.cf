@@ -121,6 +121,7 @@ ifplugin Mail::SpamAssassin::Plugin::DMARC
   ifplugin Mail::SpamAssassin::Plugin::DKIM
     ifplugin Mail::SpamAssassin::Plugin::SPF
       dmarc_save_reports 0
+      dkim_minimum_key_bits 1024
 
       header DMARC_REJECT eval:check_dmarc_reject()
       priority DMARC_REJECT 500
