@@ -15,7 +15,11 @@ Related images:
 # Tags
 The following versions are available from DockerHub. The image tag matches the Amavisd-new version.
 
-* [2.13.0.3, 2.13.0, 2.13, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis/tree/v2.13.0.3) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.13.0.3/Dockerfile)
+* [2.13.0.4, 2.13.0, 2.13, 2, latest](https://hub.docker.com/repository/docker/technicalguru/mailserver-amavis/tree/v2.13.0.4) - [Dockerfile](https://github.com/technicalguru/docker-mailserver-amavis/blob/2.13.0.3/Dockerfile)
+
+# Supported Platforms
+* linux/amd64
+* linux/arm64
 
 # Features
 * [Amavis Checker](https://www.amavis.org/) v2.13.0
