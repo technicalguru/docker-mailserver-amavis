@@ -37,8 +37,8 @@ RUN apt-get install -y --no-install-recommends \
 # SpamAssassin
 RUN apt-get install -y --no-install-recommends \
     spamassassin \
-    sa-compile \
     spamc
+#    sa-compile \
 
 # Amavis-new
 RUN apt-get install -y --no-install-recommends \
