@@ -128,6 +128,9 @@ _sigterm() {
 #########################
 cd $IMAGE_HOME
 
+# Install sa-compile here (hangs in arm64 build)
+apt-get update && apt-get install -y sa-compile && rm -rf /var/lib/apt/lists/*
+
 # Configure clamd
 configure_clamd
 

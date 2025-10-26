@@ -37,15 +37,12 @@ RUN apt-get install -y --no-install-recommends \
 # SpamAssassin
 RUN apt-get install -y --no-install-recommends \
     spamassassin \
-    sa-compile \
     spamc
+#    sa-compile \
 
 # Amavis-new
-ENV AV_VERSION="1:2.13"
-ENV AV_REVISION="0"
-ENV AV_PACKAGE="1:2.13.0-3+deb12u1"
 RUN apt-get install -y --no-install-recommends \
-    amavisd-new=${AV_PACKAGE} \
+    amavisd-new \
     && rm -rf /var/lib/apt/lists/*
 
 # Create initial AV data
@@ -91,8 +88,6 @@ RUN chmod 777 /var/log
 ARG ARG_CREATED
 ARG ARG_URL=https://github.com/technicalguru/docker-mailserver-amavis
 ARG ARG_SOURCE=https://github.com/technicalguru/docker-mailserver-amavis
-ARG ARG_VERSION="${AV_VERSION}.${AV_REVISION}"
-ARG ARG_REVISION="${AV_REVISION}"
 ARG ARG_VENDOR=technicalguru
 ARG ARG_TITLE=technicalguru/mailserver-amavis
 ARG ARG_DESCRIPTION="Provides Amavis mail scanner with ClamAV and SpamAssassin"
@@ -103,8 +98,6 @@ ARG ARG_LICENSES=GPL-3.0-or-later
 LABEL org.opencontainers.image.created=$ARG_CREATED
 LABEL org.opencontainers.image.url=$ARG_URL
 LABEL org.opencontainers.image.source=$ARG_SOURCE
-LABEL org.opencontainers.image.version=$ARG_VERSION
-LABEL org.opencontainers.image.revision=$ARG_REVISION
 LABEL org.opencontainers.image.vendor=$ARG_VENDOR
 LABEL org.opencontainers.image.title=$ARG_TITLE
 LABEL org.opencontainers.image.description=$ARG_DESCRIPTION
@@ -121,4 +114,6 @@ VOLUME /var/virusmails
 WORKDIR /usr/local/amavis
 CMD ["/usr/local/amavis/entrypoint.sh"]
 #CMD ["/usr/local/amavis/loop.sh"]
+
+RUN echo "Amavis version: $(amavisd -V)"
 
